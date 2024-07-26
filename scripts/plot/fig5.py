@@ -23,15 +23,15 @@ import matplotlib.pyplot as plt
 
 np_path = "../../results/20240511-pb-fixmatch-66/representations2d.npy"
 representations = np.load(np_path)
-plt.rc('font', family="Arial", size=16)
+plt.rc('font', family="Arial", size=18)
 plt.gcf().subplots_adjust(bottom=0.14, left=0.14)
-legends = ['Control', '4 days', '6 days', '8 days']
+legends = ['Control', 'Day 4', 'Day 6', 'Day 8']
 for day in range(4):
     selected = representations[representations[:, 3] == day, 0]
     sns.kdeplot(selected, fill=True, label=legends[day])
 
 plt.legend(loc="upper right")
-plt.xlabel('Principal component 1')
+plt.xlabel('Principal Component 1')
 plt.ylabel('Probability')
 plt.yticks([0, 0.02, 0.04, 0.06])
 plt.ticklabel_format(axis="y", style="sci", scilimits=(0, 0))
